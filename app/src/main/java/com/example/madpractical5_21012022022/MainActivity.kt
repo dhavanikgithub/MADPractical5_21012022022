@@ -1,0 +1,74 @@
+package com.example.madpractical5_21012022022
+
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.SeekBar
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.slider.Slider
+import java.lang.reflect.Field
+
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        val btnPlay:FloatingActionButton=findViewById(R.id.btn_play)
+        val btnStop:FloatingActionButton=findViewById(R.id.btn_stop)
+        val btnNext:FloatingActionButton=findViewById(R.id.btn_next)
+        val btnPrevious:FloatingActionButton=findViewById(R.id.btn_previous)
+        val txtSong:TextView=findViewById(R.id.song_text)
+        txtSong.text="No Song Playing"
+        var i=0;
+        btnPlay.setOnClickListener {
+            txtSong.text=listRaw()
+            play()
+            if(i==0)
+            {
+                btnPlay.setImageResource(android.R.drawable.ic_media_pause)
+                i=1
+            }
+            else{
+                btnPlay.setImageResource(android.R.drawable.ic_media_play)
+                i=0
+            }
+
+        }
+        btnStop.setOnClickListener {
+            txtSong.text="No Song Playing"
+            stop()
+            if(i==1)
+            {
+                btnPlay.setImageResource(android.R.drawable.ic_media_play)
+                i=0
+            }
+        }
+
+        btnNext.setOnClickListener {
+
+        }
+        btnPrevious.setOnClickListener {
+
+        }
+    }
+    fun listRaw():String {
+        val fields: Array<Field> = R.raw::class.java.fields
+        return fields[0].getName()
+    }
+    fun play()
+    {
+        Intent(applicationContext,MediaService::class.java).putExtra(MediaService.DATA_KEY,MediaService.DATA_VALUE).apply {
+            startService(this)
+        }
+    }
+    fun stop()
+    {
+        Intent(applicationContext,MediaService::class.java).apply {
+            stopService(this)
+        }
+    }
+}
