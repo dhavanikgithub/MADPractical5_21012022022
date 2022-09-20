@@ -2,16 +2,9 @@ package com.example.madpractical5_21012022022
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
-import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.slider.Slider
-import java.lang.reflect.Field
-
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         txtSong.text="No Song Playing"
         var i=0;
         btnPlay.setOnClickListener {
-            txtSong.text=listRaw()
+            txtSong.text="Song"
             play()
             if(i==0)
             {
@@ -54,10 +47,6 @@ class MainActivity : AppCompatActivity() {
         btnPrevious.setOnClickListener {
 
         }
-    }
-    fun listRaw():String {
-        val fields: Array<Field> = R.raw::class.java.fields
-        return fields[0].getName()
     }
     fun play()
     {
