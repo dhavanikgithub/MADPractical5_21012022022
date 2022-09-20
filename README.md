@@ -11,6 +11,16 @@ Create MainActivity and design according to shown in below image. Use Material 3
 Create Service Class and implement MediaPlayer Object
 
 
+Resources:
+
+
+![image](https://user-images.githubusercontent.com/110646988/191333461-242138d6-a32a-4f0f-8c7d-9f4c2f9ac666.png)
+
+![image](https://user-images.githubusercontent.com/110646988/191333423-57c609d5-7c92-43ee-9f0f-56e349d25033.png)
+
+
+
+
 ![Screenshot_20220920_222025](https://user-images.githubusercontent.com/110646988/191332089-52660fa1-222b-4760-8618-0530931a7ce5.png)
 
 
